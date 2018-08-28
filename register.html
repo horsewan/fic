@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>影视链注册页面</title>
+    <style>
+        *{
+            margin:0;
+            padding:0;
+        }
+        html, body {
+            margin:0;
+            width: 100%;
+            height: 100%;
+            -webkit-user-select: text
+        }
+        nav{
+            /*background-color: #061f3f;*/
+            background-color: #262c47;
+        }
+        nav a{
+            font-size: 14px;
+            color: #f8f8f8;
+        }
+        .container{
+            color:#f8f8f8;
+        }
+        label{
+            font-size: 12px;
+        }
+        footer{
+            width: 100%;
+            max-width: 100%;
+            background-color: #181b2a;
+        }
+        footer font{
+            color:#7b7caa!important;
+            font-size: 13px;
+        }
+        footer a{
+            color:#c7cce6!important;
+            font-size: 13px;
+        }
+
+        .bg{
+            background-image: url(img/bg.png);
+            opacity: 0.98;
+            background-repeat:no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            -moz-background-size: 100% 100%;
+            -webkit-background-size: 100% 100%;
+            min-height: 660px;
+        }
+        .banner_icons{
+            width:160px;
+            height:100px;
+        }
+        .banner_icons_image{
+            width: 20px;
+            height:20px;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        .form-control{
+            border-radius: 0px;
+        }
+        .custom-select{
+            border-radius: 0px;
+        }
+        .checkbox_1{
+            line-height: 30px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+<nav class="site-header sticky-top py-1">
+    <div class="container d-flex flex-column flex-md-row ">
+        <div style="flex: 4;flex-direction: row;">
+            <a class="py-2 d-none d-md-inline-block" href="javascript:;" style="background-color: #3a4268;width:120px;height:28px;vertical-align: middle;">
+            </a>
+            <a class="py-2 d-none d-md-inline-block" href="javascript:;" style="margin-left: 30px;">影视链</a>
+            <a class="py-2 d-none d-md-inline-block" href="javascript:;" style="margin-left: 30px;">钱包交易</a>
+        </div>
+        <div style="flex: 6;">
+        </div>
+        <div style="flex: 3;">
+            <a class="py-2 d-none d-md-inline-block" href="javascript:;" style="float:right;margin-right: 30px;">
+                <image src="./img/settings.png" style="width: 20px;height:20px;"/>
+            </a>
+            <a class="py-2 d-none d-md-inline-block" href="javascript:;" style="float:right;margin-right: 30px;">注册</a>
+            <a class="py-2 d-none d-md-inline-block" href="javascript:;" style="float:right;margin-right: 30px;">登陆</a>
+        </div>
+    </div>
+
+</nav>
+
+<div class="bg">
+    <div class="container">
+        <div class="row" style="padding-top: 50px;padding-bottom: 50px;">
+            <div class="col-md-4 order-md-2 mb-4">
+                <!--<h4 class="d-flex justify-content-between align-items-center mb-3">
+                  <span class="text-muted">Your cart</span>
+                  <span class="badge badge-secondary badge-pill">3</span>
+                </h4>
+                <ul class="list-group mb-3">
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <h6 class="my-0">Product name</h6>
+                      <small class="text-muted">Brief description</small>
+                    </div>
+                    <span class="text-muted">$12</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <h6 class="my-0">Second product</h6>
+                      <small class="text-muted">Brief description</small>
+                    </div>
+                    <span class="text-muted">$8</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between lh-condensed">
+                    <div>
+                      <h6 class="my-0">Third item</h6>
+                      <small class="text-muted">Brief description</small>
+                    </div>
+                    <span class="text-muted">$5</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between bg-light">
+                    <div class="text-success">
+                      <h6 class="my-0">Promo code</h6>
+                      <small>EXAMPLECODE</small>
+                    </div>
+                    <span class="text-success">-$5</span>
+                  </li>
+                  <li class="list-group-item d-flex justify-content-between">
+                    <span>Total (USD)</span>
+                    <strong>$20</strong>
+                  </li>
+                </ul>
+
+                <form class="card p-2">
+                  <div class="input-group">
+                    <input type="text" class="form-control" placeholder="Promo code">
+                    <div class="input-group-append">
+                      <button type="submit" class="btn btn-secondary">Redeem</button>
+                    </div>
+                  </div>
+                </form>-->
+            </div>
+            <div class="col-md-6 order-md-1">
+                <h4 class="mb-3">欢迎注册</h4>
+                <form class="needs-validation" novalidate="">
+                    <div class="row">
+                        <div class="col-md-12 mb-3">
+                            <label for="country">国籍</label>
+                            <select class="custom-select d-block " id="country" required="">
+                                <option value="China">China</option>
+                                <option value="EU">EU</option>
+                                <option value="United States">United States</option>
+                            </select>
+                            <div class="invalid-feedback">
+                                Please select a valid country.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="teleno">手机号码</label>
+                        <div class="input-group">
+                            <select class="custom-select d-block col-md-2" id="teleno" required="">
+                                <option value="China">+86</option>
+                                <option value="HK">+852</option>
+                                <option value="Macao">+853</option>
+                            </select>
+                            <input type="text" class="form-control" id="telephone" placeholder="" >
+                            <div class="invalid-feedback">
+                                Your telephone is required.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="password">登陆密码</label>
+                        <input type="password" class="form-control" id="password" placeholder="">
+                        <div class="invalid-feedback">
+                            Please enter your password.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="repwd">确认密码</label>
+                        <input type="password" class="form-control" id="repwd" placeholder="" >
+                        <div class="invalid-feedback">
+                            Please enter your password.
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="invitat">邀请码 <span class="text-muted">(选填)</span></label>
+                        <input type="text" class="form-control" id="invitat" placeholder="请输入邀请码">
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-sm-offset-2 col-sm-12">
+                                <div class="checkbox_1" >
+                                    <label class="">
+                                        <input type="checkbox"  >
+                                        <span class="custom-control-indicator"></span>
+                                        <span class="custom-control-description">
+	  												我已阅读并同意<em></em>
+								          	<a href="javascript:;" target="_blank">《用户协议》</a>
+	  											</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <div class="row">
+                            <div class="col-md-4 ">
+                                <button class="btn btn-primary btn-lg btn-block" type="submit" style="margin-top:5px ;border-radius: 5px;background-color: #7594f5;font-size: 14px;">登陆</button>
+                            </div>
+                            <div class="col-md-4">
+                                <a href="javascript:;" style="line-height: 38px;font-size: 14px;">申请机构账户</a>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<footer class="py-5">
+    <div class="container d-flex flex-column flex-md-row">
+        <div style="flex:3;">
+            <div class="row">
+                <div class="col-1 col-md">
+                    <font>服务</font>
+                    <ul class="list-unstyled text-small">
+                        <li><a href="javascript:;">影视链咨询</a></li>
+                        <li><a href="javascript:;">影视连生态</a></li>
+                        <li><a href="javascript:;">影视链账户</a></li>
+                    </ul>
+                </div>
+                <div class="col-1 col-md">
+                    <font>关于我们</font>
+                    <ul class="list-unstyled text-small">
+                        <li><a href="javascript:;">联系我们</a></li>
+                        <li><a href="javascript:;">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="col-1 col-md">
+                    <font>条款说明</font>
+                    <ul class="list-unstyled text-small">
+                        <li><a href="javascript:;">用户协议</a></li>
+                        <li><a href="javascript:;">隐私条款</a></li>
+                        <li><a href="javascript:;">法律说明</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div style="flex:6">
+            <div class="row">
+                <div class="col-4 col-md">
+                </div>
+                <div class="col-4 col-md">
+                </div>
+                <div class="col-4 col-md">
+                    <div style="background-color: #6a7296;width:160px;height:20px;"></div>
+                    <font style="color:#777e9d;font-size: 12px;">全球领先的数字资产交易平台</font>
+                    <!--background-color: red;-->
+                    <div class="banner_icons" >
+                        <image src="./img/facebook.png" class="banner_icons_image"/>
+                        <image src="./img/wechat.png" class="banner_icons_image" />
+                        <image src="./img/qq.png"  class="banner_icons_image"/>
+                        <image src="./img/twitter.png"  class="banner_icons_image"/>
+                        <image src="./img/weibo.png"  class="banner_icons_image"/>
+                        <image src="./img/facebook.png" class="banner_icons_image"/>
+                        <image src="./img/wechat.png" class="banner_icons_image" />
+                        <image src="./img/qq.png"  class="banner_icons_image"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>

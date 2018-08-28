@@ -1,0 +1,545 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>影视链</title>
+    <style>
+        nav{
+        }
+        nav a{
+            font-size: 14px;
+            color: #f8f8f8;
+        }
+        .container{
+            color:#f8f8f8;
+        }
+        label{
+            font-size: 12px;
+        }
+        footer{
+            width: 100%;
+            max-width: 100%;
+            background-color: #181b2a;
+        }
+        footer font{
+            color:#7b7caa!important;
+            font-size: 13px;
+        }
+        footer a{
+            color:#c7cce6!important;
+            font-size: 13px;
+        }
+        .banner{
+            background-image: url(img/bg3.png);
+            background-repeat:no-repeat;
+            background-size: 100% 100%;
+            -moz-background-size: 100% 100%;
+            -webkit-background-size: 100% 100%;
+        }
+        .banner_icons{
+            width:160px;
+            height:100px;
+        }
+        .banner_icons_image{
+            width: 20px;
+            height:20px;
+            margin-right: 10px;
+            margin-top: 5px;
+        }
+        .form-control{
+            border-radius: 0px;
+        }
+        .custom-select{
+            border-radius: 0px;
+        }
+        .checkbox_1{
+            line-height: 30px;
+            vertical-align: middle;
+        }
+        .fc{
+            background-image: url(img/ysl.png);
+            background-size: 100% 550px;
+            -moz-background-size: 100% 550px;
+            -webkit-background-size: 100% 550px;
+            min-height: 550px;
+        }
+        .fc_title{
+            text-align: center;
+            padding-top: 20px;
+            padding-bottom: 20px;
+            font-size: 28px;
+            color: #7594f5;
+        }
+        .fc_body{
+        }
+        .line-horizontal{
+            list-style-type: none;
+            border-top: 2px solid #4c83b9;
+            width: 30%;
+            padding: 0px;
+            font-size: 14px;
+            color:#7f84a3;
+            margin:0 auto;
+        }
+        .line-horizontal li{
+            float: left;
+            position: relative;
+            text-align: center;
+            left: 46%;
+            padding-top: 10px;
+        }
+        .line-horizontal li b{
+            position: absolute;
+            top: -6px;
+            width: 10px;
+            height: 10px;
+            border-radius: 6px;
+            background-color: #4c83b9;
+        }
+        .time-horizontal{
+            list-style-type: none;
+            border-top: 3px solid #7f84a3;
+            padding: 0px;
+            margin: 0px;
+            font-size: 14px;
+            color:#7f84a3;
+        }
+        .time-horizontal li {
+            float: left;
+            position: relative;
+            text-align: justify;
+            width: 20%;
+            padding-top: 10px;
+        }
+        .time-horizontal li v{
+            position: absolute;
+            top: -35px;
+            font-size: 18px;
+            width: 12px;
+        }
+        /*.time-horizontal li b .b_before{
+        content: '';
+        position: absolute;
+        top: -8px;
+        width: 12px;
+        height: 12px;
+        border-radius: 8px;
+        background-color: #7f84a3;
+        }*/
+        .b_before{
+            content: '';
+            position: absolute;
+            top: -8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 8px;
+            background-color: #7f84a3;
+        }
+        /*.time-horizontal li b .b_after{
+            box-shadow: 0 0 20px rgba(117, 148, 245, 1);
+            background-color: #7594f5;
+        }*/
+        .b_after{
+            box-shadow: 0 0 20px rgba(117, 148, 245, 1);
+            position: absolute;
+            top: -8px;
+            width: 12px;
+            height: 12px;
+            border-radius: 8px;
+            background-color: #7594f5;
+        }
+        .time-horizontal li p{
+            position: absolute;
+            padding-top: 5px;
+            max-width: 85%;
+            overflow:hidden;
+        }
+        .tri_box{
+            width: 0px;
+            height: 0px;
+            border-top: 4.5px solid transparent;
+            border-right: 4.5px solid transparent;
+            border-bottom: 4.5px solid #7594f5;
+            border-left: 4.5px solid #7594f5;
+        }
+        .desc_show_div{
+            background-color: #7594f5;
+            height: 96px;
+            border-radius: 0px 6px 6px 6px;
+            padding: 8px;
+            text-align: justify;
+            margin:0px 10px 10px 0px;
+            color:#F8F8F8;
+            font-size: 14px;
+            opacity: 0.8;
+        }
+        .desc_hide_div{
+            height: 96px;
+            border-radius: 5px;
+            margin:0px 10px 10px 0px;
+            padding: 8px;
+            text-align: justify;
+            font-size: 14px;
+        }
+        .fc_info{
+            text-align: justify;
+            padding-top: 30px;
+            font-size: 14px;
+            color:#7f84a3;
+            line-height: 26px;
+        }
+        .fc_line{
+            background-color: #7f84a3;
+            height: 2px;
+        }
+        .box_container{
+            position:relative;
+        }
+        .box_white{
+            position:absolute;
+            background-color: white;
+            top:20px;
+            left: 150px;
+            width: 150px;
+            height: 120px;
+        }
+        .box_white1{
+            position:absolute;
+            background-color: white;
+            top:20px;
+            left: 300px;
+            width: 80px;
+            height: 20px;
+        }
+        .box_transparent{
+            position:absolute;
+            background-color: rgba(0, 0, 0, 0.3);
+            width: 80px;
+            height: 100px;
+            top:40px;
+            left: 300px;
+        }
+        .box_black{
+            position:absolute;
+            background-color: black;
+            width: 200px;
+            height: 120px;
+            top:60px;
+            left: 300px;
+        }
+        .team{
+            background-image: url(img/team.png);
+            background-repeat:no-repeat;
+            background-attachment: fixed;
+            background-size: 100% 100%;
+            -moz-background-size: 100% 100%;
+            -webkit-background-size: 100% 100%;
+            min-height: 550px;
+            padding-bottom: 50px;
+        }
+        .team-item{
+            align-items: center;
+            vertical-align: middle;
+            text-align: center;
+            min-height: 410px;
+        }
+        .team-div{
+            text-align: center;
+            align-items: center;
+            height: 360px;
+            border-radius: 15px;
+            border:3px solid rgba(117, 148, 245, 0.8);
+            padding: 20px;
+            margin: 20px 20px 20px 20px;
+            box-shadow: 0 0 15px rgba(117, 148, 245, 0.8);
+        }
+        .team-image{
+            border-radius: 50%;
+        }
+        .partner{
+            background-color: #262a42;
+            min-height: 440px;
+        }
+        .partner-img{
+            width: 200px;
+            height: 90px;
+            /*padding-top: 20px;*/
+            padding: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="banner">
+    <nav class="site-header sticky-top py-1">
+        <div class="container d-flex flex-column flex-md-row ">
+            <div style="flex: 6;flex-direction: row;">
+                <a class="py-2 d-none d-md-inline-block" href="javascript:;" style="background-color: #3a4268;width:120px;height:28px;vertical-align: middle;">
+                </a>
+                <a class="py-2 d-none d-md-inline-block" href="javascript:;" style="margin-left: 30px;">首页</a>
+                <a class="py-2 d-none d-md-inline-block" href="javascript:;" style="margin-left: 30px;">简介</a>
+                <a class="py-2 d-none d-md-inline-block" href="javascript:;" style="margin-left: 30px;">团队</a>
+                <a class="py-2 d-none d-md-inline-block" href="javascript:;" style="margin-left: 30px;">技术</a>
+                <a class="py-2 d-none d-md-inline-block" href="javascript:;" style="margin-left: 30px;">合作</a>
+            </div>
+            <div style="flex: 6;">
+            </div>
+            <div style="flex: 3;">
+                <a class="py-2 d-none d-md-inline-block" href="javascript:;" style="float:right;margin-right: 30px;">
+                    <image src="./img/settings.png" style="width: 20px;height:20px;"/>
+                </a>
+                <a class="py-2 d-none d-md-inline-block" href="javascript:;" style="float:right;margin-right: 30px;">注册</a>
+                <a class="py-2 d-none d-md-inline-block" href="javascript:;" style="float:right;margin-right: 30px;">登陆</a>
+            </div>
+        </div>
+
+    </nav>
+    <div class="container">
+        <div class="row" style="padding-top: 50px;padding-bottom: 50px;height: 1000px;">
+
+        </div>
+    </div>
+</div>
+
+<div class="fc">
+    <div class="fc_title">
+        <font>影视链</font>
+    </div>
+    <div class="container">
+        <div class="row" style="min-height: 260px;">
+            <div class="col-6 box_container" >
+                <div class="box_white"></div>
+                <div class="box_white1"></div>
+                <div class="box_transparent"></div>
+                <div class="box_black"></div>
+            </div>
+            <div class="col-6" >
+                <p class="fc_info">
+                    影视链（Film Chain）是一个与影视产业相结合的区块链项目。它的诞生意味着区块链与影视行业开始了真正意义上的触碰与结合。
+                    影视链作为一个基于Fic币(影视链Token)的去中心化与社交性的影视投资与版权交易，并集文化、旅游票务娱乐消费等区块链平台，致力革新传统影视领域，
+                    基于影视区块链的流通，数字资产的特性，和数字钱包货币之间建立一座互通互利的桥梁，未来在数字资产的交易基础上还会进一步拓展业务，用户可以在影视链中
+                    交易存储数字资产、进而交易与投资，处理银行业务、进行投资、办理金融、进行影视生产交易，版权成本保护，影视合作共赢等等。
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="fc_body">
+        <ul class="time-horizontal">
+            <li></li>
+            <li>
+                <v>02/18</v>
+                <b class="b_before"></b>
+                <div class="desc_hide_div">
+                    <p>与影视业机构、文娱企业、影视制作人、IP作者等积极 接洽，为影视链带来更多影视产业资源。</p>
+                </div>
+            </li>
+            <li>
+                <v style="color:#FFFFFF;">03/18</v>
+                <b class="b_after"></b>
+                <div class="tri_box"></div>
+                <div class="desc_show_div">
+                    <p>与各大媒体合作，就进行大规模推广，FIC币上交易大盘并进入二级市场交易。</p>
+                </div>
+            </li>
+            <li>
+                <v>04/18</v>
+                <b class="b_before"></b>
+                <div class="desc_hide_div">
+                    <p>拓展影视链业务体系，其他产业（如影视地产、影视 娱乐等）也可以加入影视链生态圈。</p>
+                </div>
+            </li>
+            <li></li>
+        </ul>
+    </div>
+</div>
+
+<div class="team">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md text-center" style="padding-top: 40px;padding-bottom: 20px;">
+                <font style="font-size: 28px;color:#7594f5;">优秀团队</font>
+                <p style="color:#7f84a3;font-size: 12px;padding-top: 20px;">影视链项目背后的团队是由一群有经验的管理者、组织者、开发者和数字资产专家所组成</p>
+            </div>
+            <div class="col-12 d-flex flex-column flex-md-row flex-wrap justify-content-center">
+                <div class="p-2 col-4 team-item" >
+                    <div class="team-div">
+                        <image src="img/44.png" class="team-image"/>
+                        <p style="color:#93a2d1;">Lewis Neri</p>
+                        <ul class="line-horizontal">
+                            <li>
+                                <b></b>
+                            </li>
+                        </ul>
+                        <br />
+                        <p style="color:#93a2d1;text-align: center;">CEO &amp; 发起人</p>
+                        <p style="text-align: justify;font-size: 12px;color:#93a2d1;">早期商业模型架构师，负责公司产品的方向制定。他有超过7年的电影行业经验，有12年多的行业经验。</p>
+                    </div>
+                </div>
+                <div class="p-2 col-4 team-item" >
+                    <div class="team-div">
+                        <image src="img/44.png" class="team-image"/>
+                        <p style="color:#93a2d1;">Lewis Neri</p>
+                        <ul class="line-horizontal">
+                            <li>
+                                <b></b>
+                            </li>
+                        </ul>
+                        <br />
+                        <p style="color:#93a2d1;text-align: center;">CEO &amp; 发起人</p>
+                        <p style="text-align: justify;font-size: 12px;color:#93a2d1;">早期商业模型架构师，负责公司产品的方向制定。他有超过7年的电影行业经验，有12年多的行业经验。</p>
+                    </div>
+                </div>
+                <div class="p-2 col-4 team-item" >
+                    <div class="team-div">
+                        <image src="img/44.png" class="team-image"/>
+                        <p style="color:#93a2d1;">Lewis Neri</p>
+                        <ul class="line-horizontal">
+                            <li>
+                                <b></b>
+                            </li>
+                        </ul>
+                        <br />
+                        <p style="color:#93a2d1;text-align: center;">CEO &amp; 发起人</p>
+                        <p style="text-align: justify;font-size: 12px;color:#93a2d1;">早期商业模型架构师，负责公司产品的方向制定。他有超过7年的电影行业经验，有12年多的行业经验。</p>
+                    </div>
+                </div>
+                <div class="p-2 col-4 team-item" >
+                    <div class="team-div">
+                        <image src="img/44.png" class="team-image"/>
+                        <p style="color:#93a2d1;">Lewis Neri</p>
+                        <ul class="line-horizontal">
+                            <li>
+                                <b></b>
+                            </li>
+                        </ul>
+                        <br />
+                        <p style="color:#93a2d1;text-align: center;">CEO &amp; 发起人</p>
+                        <p style="text-align: justify;font-size: 12px;color:#93a2d1;">早期商业模型架构师，负责公司产品的方向制定。他有超过7年的电影行业经验，有12年多的行业经验。</p>
+                    </div>
+                </div><div class="p-2 col-4 team-item" >
+                <div class="team-div">
+                    <image src="img/44.png" class="team-image"/>
+                    <p style="color:#93a2d1;">Lewis Neri</p>
+                    <ul class="line-horizontal">
+                        <li>
+                            <b></b>
+                        </li>
+                    </ul>
+                    <br />
+                    <p style="color:#93a2d1;text-align: center;">CEO &amp; 发起人</p>
+                    <p style="text-align: justify;font-size: 12px;color:#93a2d1;">早期商业模型架构师，负责公司产品的方向制定。他有超过7年的电影行业经验，有12年多的行业经验。</p>
+                </div>
+            </div>
+                <div class="p-2 col-4 team-item" >
+                    <div class="team-div">
+                        <image src="img/44.png" class="team-image"/>
+                        <p style="color:#93a2d1;">Lewis Neri</p>
+                        <ul class="line-horizontal">
+                            <li>
+                                <b></b>
+                            </li>
+                        </ul>
+                        <br />
+                        <p style="color:#93a2d1;text-align: center;">CEO &amp; 发起人</p>
+                        <p style="text-align: justify;font-size: 12px;color:#93a2d1;">早期商业模型架构师，负责公司产品的方向制定。他有超过7年的电影行业经验，有12年多的行业经验。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="partner">
+    <div class="container">
+        <div class="row">
+            <div class="col-12 col-md text-center" style="padding-top: 40px;padding-bottom: 20px;">
+                <font style="font-size: 28px;color:#7594f5;">战略合作机构</font>
+            </div>
+            <div class="col-12 d-flex flex-column flex-md-row">
+                <div>
+                    <image src="./img/partner0.gif" class="partner-img"></image>
+                    <image src="./img/partner1.gif" class="partner-img"></image>
+                    <image src="./img/partner2.gif" class="partner-img"></image>
+                    <image src="./img/partner3.gif" class="partner-img"></image>
+                    <image src="./img/partner4.gif" class="partner-img"></image>
+                    <image src="./img/partner5.gif" class="partner-img"></image>
+                    <image src="./img/partner6.gif" class="partner-img"></image>
+                    <image src="./img/partner7.gif" class="partner-img"></image>
+                    <image src="./img/partner8.gif" class="partner-img"></image>
+                    <image src="./img/partner9.png" class="partner-img"></image>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer class="py-5">
+    <div class="container d-flex flex-column flex-md-row">
+        <div style="flex:3;">
+            <div class="row">
+                <div class="col-1 col-md">
+                    <font>服务</font>
+                    <ul class="list-unstyled text-small">
+                        <li><a href="javascript:;">影视链咨询</a></li>
+                        <li><a href="javascript:;">影视连生态</a></li>
+                        <li><a href="javascript:;">影视链账户</a></li>
+                    </ul>
+                </div>
+                <div class="col-1 col-md">
+                    <font>关于我们</font>
+                    <ul class="list-unstyled text-small">
+                        <li><a href="javascript:;">联系我们</a></li>
+                        <li><a href="javascript:;">关于我们</a></li>
+                    </ul>
+                </div>
+                <div class="col-1 col-md">
+                    <font>条款说明</font>
+                    <ul class="list-unstyled text-small">
+                        <li><a href="javascript:;">用户协议</a></li>
+                        <li><a href="javascript:;">隐私条款</a></li>
+                        <li><a href="javascript:;">法律说明</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div style="flex:6">
+            <div class="row">
+                <div class="col-4 col-md">
+                </div>
+                <div class="col-4 col-md">
+                </div>
+                <div class="col-4 col-md">
+                    <div style="background-color: #6a7296;width:160px;height:20px;"></div>
+                    <font style="color:#777e9d;font-size: 12px;">全球领先的数字资产交易平台</font>
+                    <!--background-color: red;-->
+                    <div class="banner_icons" >
+                        <image src="./img/facebook.png" class="banner_icons_image"/>
+                        <image src="./img/wechat.png" class="banner_icons_image" />
+                        <image src="./img/qq.png"  class="banner_icons_image"/>
+                        <image src="./img/twitter.png"  class="banner_icons_image"/>
+                        <image src="./img/weibo.png"  class="banner_icons_image"/>
+                        <image src="./img/facebook.png" class="banner_icons_image"/>
+                        <image src="./img/wechat.png" class="banner_icons_image" />
+                        <image src="./img/qq.png"  class="banner_icons_image"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</body>
+</html>
