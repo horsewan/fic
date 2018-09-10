@@ -1,9 +1,11 @@
-import {HEADER_SHOW,HEADER_HIDE,FOOTER_SHOW, FOOTER_HIDE, CHANGE_COLOR,HEADER_FONT_COLOR} from './type'
+import {HEADER_SHOW,HEADER_HIDE,FOOTER_SHOW, FOOTER_HIDE, CHANGE_COLOR,HEADER_FONT_COLOR,IS_LOGIN,TOKEN} from './type'
 
 const state = {
   headerShow: true,
   footerShow: true,
+  isLogin: false,
   color: '#262a42',
+  token: '',
   headerFontColor: '#f8f8f8',
 }
 
@@ -20,6 +22,12 @@ const mutations = {
   [FOOTER_HIDE] (state) {
     state.footerShow = false
   },
+  [IS_LOGIN] (state, val) {
+    state.isLogin = val
+  },
+  [TOKEN] (state, val) {
+    state.token = val
+  },
   [CHANGE_COLOR] (state, val) {
     state.color = val
   },
@@ -35,11 +43,17 @@ const getters = {
   headerShow(state){
     return state.headerShow;
   },
-  color (state) {
-    return state.color
+  isLogin(state) {
+    return state.isLogin;
   },
-  changeHeaderFontColor(){
-    return state.headerFontColor
+  token(state) {
+    return state.token;
+  },
+  color (state) {
+    return state.color;
+  },
+  headerFontColor(state){
+    return state.headerFontColor;
   }
 }
 

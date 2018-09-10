@@ -19,4 +19,11 @@ export default {
   changeHeaderFontColor: ({commit}, val) => {
     commit(types.HEADER_FONT_COLOR, val)
   },
+  isLogin: ({commit},val) => {
+    commit(types.IS_LOGIN,val)
+  },
+  token: ({commit},val) => {
+    commit(types.TOKEN,val)
+  },
+
 }

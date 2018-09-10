@@ -35,11 +35,7 @@
         <el-col :span="7">
           <div>
             <el-row type="flex" justify="space-between">
-              <el-col >
-              </el-col>
-              <el-col >
-              </el-col>
-              <el-col  :span="8" style="">
+              <el-col  :span="12" :offset="12" style="">
                 <div style="background-color: #6a7296;width:140px;height:20px;margin:auto;"></div>
                 <font class="footer-font">全球领先的数字资产交易平台</font>
                 <div style="width:160px;height:20px;margin:auto;">
@@ -91,6 +87,7 @@ export default {
     width: 100%;
     margin-bottom: 0px;
     padding-bottom: 0px;
+    overflow: hidden;
   }
   .footer-container{
     position: absolute;
@@ -115,11 +112,16 @@ export default {
   }
 
   @media screen and (max-width: 640px) {
-      .footer-container {
-          /*margin-top: -210px;*/
-          height: 200px;
-          padding-top: 20px;
-      }
+    .footer-container {
+        /*margin-top: -210px;*/
+        height: 200px;
+        padding-top: 20px;
+    }
+    .footer-font{
+      color:#777e9d;
+      font-size: 0.4rem;
+      line-height: 30px;
+    }
   }
 
   .list-unstyled{
@@ -148,7 +150,7 @@ export default {
   }
   .footer-font{
     color:#777e9d;
-    font-size: 10px;
+    font-size: 0.4rem;
     line-height: 30px;
   }
 

@@ -5,22 +5,21 @@
   import Main from './Main.vue'
   import {mapGetters} from 'vuex';
   export default {
-      watch: {},
-      data() {
-          return {}
-      },
-      computed:mapGetters([
-        'loading'
-      ]),
-      created() {
-      },
-      mounted(){
-        this.$store.commit('HEADER_FONT_COLOR','#f8f8f8');
-      },
-      methods: {},
-      components: {
-        Main
-      },
+    watch: {},
+    data() {
+        return {}
+    },
+    computed:mapGetters([
+      'loading',
+      'headerFontColor'
+    ]),
+    activated(){
+      console.log('index actived');
+    },
+    methods: {},
+    components: {
+      Main
+    },
   }
 
 </script>

@@ -1,12 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 
-import Index from '@/components/page/Index'
-import Login from '@/components/page/Login'
-import Register from '@/components/page/Register'
-import Center from '@/components/page/Center'
-import Home from '@/components/page/Home'
-import Recharge from '@/components/page/Recharge'
+// import Index from '@/components/page/Index'
+// import Login from '@/components/page/Login'
+// import Register from '@/components/page/Register'
+// import Center from '@/components/page/Center'
+// import Home from '@/components/page/Home'
+// import Recharge from '@/components/page/Recharge'
 
 Vue.use(Router)
 
@@ -16,45 +16,56 @@ export default new Router({
       path: '/',
       redirect: '/index'
     },
+    // {
+    //   path: '/',
+    //   component: resolve => require(['@/components/page/Index'], resolve),
+    //   meta: {title: 'Index页面'},
+    //   children: [
+    //     {
+    //       path: '/index',
+    //       component: resolve => require(['@/components/page/Index'], resolve),
+    //       meta: {title: 'Index页面'},
+    //     },
+    //
+    //   ]
+    // },
     {
-      path: '/',
-      component: Index,
-      meta: {title: 'Index页面'},
-      children: [
-        {
-          path: '/index',
-          component: Index,
-          meta: {title: 'Index页面'},
-        },
-
-      ]
+      path: '/index',
+      name: 'Index',
+      component: resolve => require(['@/components/page/Index'], resolve)
     },
     {
       path: '/login',
       name: 'Login',
-      component: Login
+      component: resolve => require(['@/components/page/Login'], resolve)
     },
     {
       path: '/register',
       name: 'Register',
-      component: Register,
+      component: resolve => require(['@/components/page/Register'], resolve),
     },
     {
       path: '/center',
       name: 'Center',
-      component: Center,
+      component: resolve => require(['@/components/page/Center'], resolve),
       meta: {title: 'Center页面'},
     },
     {
       path: '/recharge',
       name: 'Recharge',
-      component: Recharge,
+      component: resolve => require(['@/components/page/Recharge'], resolve),
       meta: {title: 'Recharge 页面'},
+    },
+    {
+      path: '/trade',
+      name: 'Trade',
+      component: resolve => require(['@/components/page/Trade'], resolve),
+      meta: {title: 'Trade 页面'},
     },
     {
       path: '/home',
       name: 'Home',
-      component: Home
+      component: resolve => require(['@/components/page/Home'], resolve)
     },
     {
       path: '*',

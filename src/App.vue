@@ -16,8 +16,8 @@
 </template>
 
 <script type="text/ecmascript-6">
-  import HeaderView from './components/common/Header.vue'
-  import FooterView from './components/common/Footer.vue'
+  import HeaderView from '@/components/common/Header.vue'
+  import FooterView from '@/components/common/Footer.vue'
   import {mapGetters} from 'vuex';
   export default {
     name: 'App',
@@ -30,6 +30,15 @@
       'headerShow',
       'footerShow',
     ]),
+    created(){
+      //在页面加载时读取localStorage里的状态信息
+      localStorage.getItem('userMsg') && this.$store.replaceState(Object.assign(this.$store.state,JSON.parse(localStorage.getItem("userMsg"))));
+
+      //在页面刷新时将vuex里的信息保存到localStorage里
+      window.addEventListener("beforeunload",()=>{
+        localStorage.setItem("userMsg",JSON.stringify(this.$store.state))
+      })
+    },
     components: {
       HeaderView,
       FooterView
@@ -39,6 +48,7 @@
 
 <style>
   /*@import "./assets/css/main.css";*/
+
   @import "./assets/css/color-dark.css";
   html, body, #app, .wrap {
     height: 100%;

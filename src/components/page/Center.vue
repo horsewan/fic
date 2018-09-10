@@ -140,13 +140,14 @@
         activeIndex: '1',
       }
     },
-    computed:mapGetters([
-      'loading'
-    ]),
-    mounted(){
-      this.$store.commit('CHANGE_COLOR','#ffffff');
-      this.$store.commit('HEADER_FONT_COLOR','black');
+    activated(){
+      this.$store.dispatch('changeColor','#ffffff');
+      this.$store.commit('HEADER_FONT_COLOR','#000000');
     },
+    computed:mapGetters([
+      'loading',
+      'headerFontColor'
+    ]),
     methods:{
       handleSelect(key, keyPath) {
         console.log(key, keyPath);

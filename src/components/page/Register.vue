@@ -110,7 +110,7 @@
           {label:'USA',value:'USA'},
           {label:'EU',value:'EU'},
         ],
-        areaList:[
+        areaList: [
           {label:'+86',value:'+86'},
           {label:'+87',value:'+87'},
           {label:'+88',value:'+88'},
@@ -128,12 +128,12 @@
           nationality: [
             {required: true, message: '请选择国籍', trigger: 'blur'},
           ],
-          area:[
-            {required:true, message: '请选择区号', trigger: 'blur'},
+          area: [
+            {required: true, message: '请选择区号', trigger: 'blur'},
             { validator: validateArea, trigger: 'blur' }
           ],
-          telephone:[
-            {required:true, message: '请输入手机号', trigger: 'blur'},
+          telephone: [
+            {required: true, message: '请输入手机号', trigger: 'blur'},
             {pattern: /^((1[3,5,8][0-9])|(14[5,7])|(17[0,6,7,8])|(19[7]))\d{8}$/, message: '手机号格式错误'}
           ],
           loginPassword:[
@@ -147,11 +147,13 @@
             {required:true, message: '请勾选用户协议', trigger: 'blur'},
             { validator: validateBoolean, trigger: 'blur' }
           ]
-
         },
       }
     },
-
+    activated(){
+      // this.$store.dispatch('changeColor','#ffffff');
+      // this.$store.dispatch('changeHeaderFontColor', '#000000');
+    },
     methods: {
       onSubmit (formName) {
         this.$refs[formName].validate((valid,object) => {
@@ -177,10 +179,8 @@
 
 <style scoped>
   .register {
-    position: absolute;
     z-index:1;
     background-image: url('../../assets/img/bg_center.png');
-    background-repeat: no-repeat;
     background-size: 100% 100%;
     -moz-background-size: 100% 100%;
     -webkit-background-size: 100% 100%;
@@ -195,7 +195,7 @@
     min-height: 200px;
     margin-top: 60px;
     padding-top: 50px;
-    height: 100%;
+    /*height: 100%;*/
     color:#f8f8f8;
   }
   .registerForm >>> .el-form-item--small .el-form-item__label{

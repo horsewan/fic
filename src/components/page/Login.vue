@@ -84,22 +84,47 @@
         },
       }
     },
-
+    activated(){
+      // this.$store.dispatch('changeColor','#ffffff');
+      // this.$store.commit('HEADER_FONT_COLOR','#000000');
+    },
     methods: {
       onSubmit (formName) {
         this.$refs[formName].validate((valid,object) => {
-          console.log(valid,object);
           if (valid) {
-            // 验证是否注册成功
+  /*          // 模拟登陆,正式环境改为post
+            this.$axios.get(`/api/login`,{}).then((res) => {
+              console.log(res.data)
+              if(res.status == 200){
+                if(res.data.username == this.formLabelAlign.loginName){
+                  const token = res.data.token;
+                  const username = res.data.username;
+                  const isLogin = true;
 
-            // 模拟登陆
+                  // 存储token和登陆信息
+                  localStorage.setItem('token', token);
+                  localStorage.setItem('username', username);
+                  localStorage.setItem('isLogin', isLogin);
 
-            // 存储token
+
+                  this.$store.dispatch('token', token);
+//                  this.$store.dispatch('username', username);
+                  this.$store.dispatch('isLogin', isLogin);
+
+                  // 跳转页面
+                  this.$router.push('/home');
+                }
+              }
+            }).catch((res)=>{
+              this.$message.error(res);
+            })*/
+//                  this.$store.dispatch('username', username);
+            this.$store.dispatch('isLogin', true);
 
             // 跳转页面
             this.$router.push('/home');
           } else {
-            console.log('error submit!!')
+            this.$message.error('error submit!!');
             return false
           }
         })
