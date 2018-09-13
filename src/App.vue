@@ -50,6 +50,8 @@
   /*@import "./assets/css/main.css";*/
 
   @import "./assets/css/color-dark.css";
+  @import "./assets/css/reset-element.scss";
+
   html, body, #app, .wrap {
     height: 100%;
     -webkit-user-select: text

@@ -14,7 +14,8 @@
       'headerFontColor'
     ]),
     activated(){
-      console.log('index actived');
+      this.$store.dispatch('changeColor','#ffffff');
+      this.$store.dispatch('changeHeaderFontColor', '#ffffff');
     },
     methods: {},
     components: {

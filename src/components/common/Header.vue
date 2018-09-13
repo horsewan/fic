@@ -5,7 +5,7 @@
       </el-col>
       <el-col :span="16" >
         <el-row type="flex" style="z-index:999;">
-          <el-col :span="16" >
+          <el-col :span="17" >
             <div  v-show="!isLogin" style="text-align: left;">
               <a class="py-2 d-none d-md-inline-block" href="javascript:;">
                 <div style="background-color: #3a4268;width:100px;min-height:30px;vertical-align: middle;display: inline-block;">
@@ -46,8 +46,8 @@
               </router-link>
             </div>
           </el-col>
-          <el-col :span="8" >
-            <div style="text-align: right;">
+          <el-col :span="7" >
+            <div style="text-align: right;" >
               <a class="py-2 d-none d-md-inline-block" href="javascript:;" :style="{ 'float':'right','margin-left': '30px','text-decoration' : 'none','color': headerFontColor}">
                 <i class="el-icon-setting"></i>
               </a>
@@ -60,8 +60,11 @@
               <router-link to="/login" tag='span' v-show="isLogin" @click.native="logout">
                 <a class="py-2 d-none d-md-inline-block" href="javascript:;" :style="{ 'float':'right','margin-left': '30px','text-decoration' : 'none','color': headerFontColor}">退出</a>
               </router-link>
-              <router-link to="/center" tag='span' v-show="isLogin">
-                <a class="py-2 d-none d-md-inline-block" href="javascript:;" :style="{ 'float':'right','margin-left': '30px','text-decoration' : 'none','color': headerFontColor}">头像</a>
+              <router-link to="/center" tag='span' v-show="isLogin" >
+                <a class="py-2 d-none d-md-inline-block" href="javascript:;" :style="{ 'float':'right','margin-left': '30px','line-height': '78px','text-decoration' : 'none','color': headerFontColor}">
+                  <!--头像-->
+                  <img :src="avatar" class="avatar" :onerror='defaultImg'/>
+                </a>
               </router-link>
             </div>
           </el-col>
@@ -79,6 +82,8 @@ export default {
   name: 'Header1',
   data () {
     return {
+      defaultImg: 'this.src="' + require('../../assets/img/avatar-boy.png') + '"',
+      avatar:require('../../assets/img/avatar-boy.png'),
     }
   },
   computed: mapGetters([
@@ -103,9 +108,14 @@ export default {
 </script>
 
 <style scoped>
-    .el-header {
-      text-align: center;
-      line-height: 60px;
-      overflow: hidden;
-    }
+  .el-header {
+    text-align: center;
+    line-height: 60px;
+    overflow: hidden;
+  }
+  .avatar{
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+  }
 </style>

@@ -85,8 +85,7 @@
       }
     },
     activated(){
-      // this.$store.dispatch('changeColor','#ffffff');
-      // this.$store.commit('HEADER_FONT_COLOR','#000000');
+      this.$store.dispatch('changeHeaderFontColor', '#ffffff');
     },
     methods: {
       onSubmit (formName) {

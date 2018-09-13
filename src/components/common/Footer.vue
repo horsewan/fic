@@ -35,8 +35,8 @@
         <el-col :span="7">
           <div>
             <el-row type="flex" justify="space-between">
-              <el-col  :span="12" :offset="12" style="">
-                <div style="background-color: #6a7296;width:140px;height:20px;margin:auto;"></div>
+              <el-col  :span="12" :offset="12" style="width: 60%">
+                <div style="background-color: #6a7296;width:150px;height:20px;margin:auto;"></div>
                 <font class="footer-font">全球领先的数字资产交易平台</font>
                 <div style="width:160px;height:20px;margin:auto;">
                   <img src="../../assets/img/facebook.png" class="banner_icons_image"/>
@@ -121,6 +121,7 @@ export default {
       color:#777e9d;
       font-size: 0.4rem;
       line-height: 30px;
+      width:100%;
     }
   }
 
@@ -152,6 +153,7 @@ export default {
     color:#777e9d;
     font-size: 0.4rem;
     line-height: 30px;
+    width: 100%;
   }
 
 </style>

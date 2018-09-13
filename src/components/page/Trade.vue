@@ -1,11 +1,24 @@
 <template>
   <div class="rechargeForm">
+    <div>
+      <el-row type="flex">
+        <el-col :span="16" :offset="4" class="rechargeTitle">
+          <el-row>
+            <!--background-color: #00d1b2;-->
+            <el-col :span="8" style="line-height: 50px;">影视链FIC</el-col>
+            <!--background-color: #00d562;-->
+            <el-col :span="8" style="line-height: 50px;">以太币ETH</el-col>
+            <!--background-color: #00d584;-->
+            <el-col :span="8" style="line-height: 50px;">比特币BTC</el-col>
+          </el-row>
+        </el-col>
+      </el-row>
+    </div>
     <el-row type="flex">
-      <el-col :span="4"></el-col>
-      <el-col :span="18">
-        <el-row type="flex" style="padding: 20px;">
-          <el-col :span="16" >
-            <el-tabs type="border-card">
+      <el-col :span="16" :offset="4">
+        <el-row type="flex" style="padding-top: 20px;padding-bottom: 20px;">
+          <el-col :span="16">
+            <el-tabs type="border-card" style="height: 320px;">
               <el-tab-pane label="   限款委托    ">
                 <div class="line">可用：0.0000 USDE</div>
                 <div style="margin-top: 20px;" >
@@ -33,8 +46,8 @@
               </el-tab-pane>
             </el-tabs>
           </el-col>
-          <el-col :span="8" style="padding-left: 10px;" width="">
-            <el-card :body-style="{ padding: '0px' }" shadow="always" class="box-card center-header">
+          <el-col :span="8" style="padding-left: 10px;">
+            <el-card :body-style="{ padding: '0px' }" style="height: 320px;" shadow="always" class="box-card center-header">
 
               <el-table
                 :data="tableData"
@@ -49,8 +62,7 @@
                   prop="price"
                   align="center"
                   min-width="30%"
-                  label="价格"
-                  width="180">
+                  label="价格">
                 </el-table-column>
                 <el-table-column
                   prop="qty"
@@ -63,11 +75,9 @@
           </el-col>
         </el-row>
       </el-col>
-      <el-col :span="4"></el-col>
     </el-row>
     <el-row type="flex">
-      <el-col :span="4"></el-col>
-      <el-col :span="18">
+      <el-col :span="16" :offset="4">
             <el-card shadow="always" class="box-card center-header">
               <el-menu :default-active="activeIndex"
                        class="el-menu-demo"
@@ -121,7 +131,6 @@
                 </el-row>
             </el-card>
       </el-col>
-      <el-col :span="4"></el-col>
     </el-row>
   </div>
 </template>
@@ -327,7 +336,15 @@
     border-bottom: none;
   }
 
-  rechargeForm >>> .el-tabs__item{
+  .rechargeTitle{
+    background-color: #f2f2f2;
+    min-height: 50px;
+    vertical-align: middle;
+    text-align: center;
+    border-radius: 0px;
+  }
+
+  .rechargeForm >>> .el-tabs__item{
     width: 80px;
   }
   .item-desc-label{
@@ -339,8 +356,13 @@
   .el-input--small{
     margin-bottom: 10px;
   }
-  .el-button{
-    background-color: #5daf34;
+
+  .el-table::before {
+    z-index: inherit;
+  }
+
+  .el-table td, .el-table th.is-leaf {
+    border-bottom: 0px;
   }
 </style>
 

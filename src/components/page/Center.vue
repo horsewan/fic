@@ -16,8 +16,8 @@
                   <label style="font-size: 12px;">135****6218</label>
                 </div>
                 <div>
-                  <el-button type="button">修改资料</el-button>
-                  <el-button type="button">实名认证</el-button>
+                  <el-button type="button" size="small">修改资料</el-button>
+                  <el-button type="button" size="small">实名认证</el-button>
                 </div>
                 <div class="card-left-menu">
                   <ul style="line-height:16px;vertical-align: middle">
@@ -142,7 +142,7 @@
     },
     activated(){
       this.$store.dispatch('changeColor','#ffffff');
-      this.$store.commit('HEADER_FONT_COLOR','#000000');
+      this.$store.dispatch('changeHeaderFontColor', '#000000');
     },
     computed:mapGetters([
       'loading',
@@ -170,7 +170,7 @@
   }
 </script>
 
-<style scoped>
+<style>
   .me-center{
     position: absolute;
     min-height: 80%;

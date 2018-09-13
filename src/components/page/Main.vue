@@ -30,7 +30,7 @@
         </el-col>
         <el-col :span="4"></el-col>
       </el-row>
-      <div class="fc_body">
+      <div class="fc_body"  >
         <ul class="time-horizontal">
           <li></li>
           <li>
@@ -61,10 +61,9 @@
     </div>
 
     <div class="team">
-      <el-row type="flex">
-        <el-col :span="5"></el-col>
-        <el-col :span="14">
-          <div class="text-center p-title-div">
+      <el-row type="flex" style="width: 100%;">
+        <el-col :span="14" :offset="5">
+          <div class="text-center p-title-div" >
             <font class="p-title">优秀团队</font>
           </div>
           <div>
@@ -87,7 +86,6 @@
             </el-row>
           </div>
         </el-col>
-        <el-col :span="5"></el-col>
       </el-row>
     </div>
 
@@ -169,6 +167,10 @@
     -webkit-background-size: 100% 550px;
     min-height: 550px;
   }
+  .fc_body{
+    padding-top: 50px;
+    padding-bottom: 160px;
+  }
   .fc_info{
     text-align: justify;
     padding-top: 30px;
@@ -245,34 +247,43 @@
   .box_white{
     position:absolute;
     background-color: white;
-    top:20px;
-    left: 70px;
-    width: 150px;
-    height: 120px;
+    top:1.25rem;
+    /*left: 70px;*/
+    left:4.375rem;
+    /*width: 150px;*/
+    width: 8rem;
+    height: 7.5rem;
   }
   .box_white1{
     position:absolute;
     background-color: white;
-    top:20px;
-    left: 220px;
-    width: 80px;
-    height: 20px;
+    top:1.25rem;
+    /*left: 220px;*/
+    left:12.375rem;
+    /*width: 80px;*/
+    width: 5rem;
+    height: 1.25rem;
   }
   .box_transparent{
     position:absolute;
     background-color: rgba(0, 0, 0, 0.3);
-    width: 80px;
-    height: 100px;
-    top:40px;
-    left: 220px;
+    /*width: 80px;*/
+    width: 5rem;
+    /*height: 100px;*/
+    height: 6.25rem;
+    top:2.5rem;
+    left:12.375rem;
+    /*left: 220px;*/
   }
   .box_black{
     position:absolute;
     background-color: black;
-    width: 200px;
-    height: 120px;
-    top:60px;
-    left: 220px;
+    /*width: 200px;*/
+    width: 7.5rem;
+    height: 7.5rem;
+    top:3.75rem;
+    left:12.375rem;
+    /*left: 220px;*/
   }
   .partner{
     background-color: #262a42;
@@ -288,7 +299,7 @@
   }
   .team{
     background-image: url('../../assets/img/team.png');
-    background-repeat:no-repeat;
+    /*background-repeat:no-repeat;*/
     background-attachment: fixed;
     background-size: 100% 100%;
     -moz-background-size: 100% 100%;

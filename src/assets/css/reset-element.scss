@@ -1,0 +1,53 @@
+.el-button--black {
+  color: #fff;
+  background-color: #262b41;
+  border-color: #7588c2;
+}
+.el-button--black:focus,
+.el-button--black:hover {
+  background: #14314F;
+  border-color: #14314F;
+  color: #fff;
+}
+.el-button--black.is-active,
+.el-button--black:active {
+  background: #3a8ee6;
+  border-color: #3a8ee6;
+  color: #fff;
+}
+.el-button--black:active {
+  outline: 0;
+}
+.el-button--black.is-disabled,
+.el-button--black.is-disabled:active,
+.el-button--black.is-disabled:focus,
+.el-button--black.is-disabled:hover {
+  color: #fff;
+  background-color: #a0cfff;
+  border-color: #a0cfff;
+}
+.el-button--black.is-plain {
+  color: #409eff;
+  background: #ecf5ff;
+  border-color: #b3d8ff;
+}
+.el-button--black.is-plain:focus,
+.el-button--black.is-plain:hover {
+  background: #409eff;
+  border-color: #409eff;
+  color: #fff;
+}
+.el-button--black.is-plain:active {
+  background: #3a8ee6;
+  border-color: #3a8ee6;
+  color: #fff;
+  outline: 0;
+}
+.el-button--black.is-plain.is-disabled,
+.el-button--black.is-plain.is-disabled:active,
+.el-button--black.is-plain.is-disabled:focus,
+.el-button--black.is-plain.is-disabled:hover {
+  color: #8cc5ff;
+  background-color: #ecf5ff;
+  border-color: #d9ecff;
+}

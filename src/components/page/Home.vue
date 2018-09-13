@@ -2,7 +2,7 @@
   <div class="main-container">
     <div class="bg">
     </div>
-    <div class="partner">
+    <div class="home">
       <el-row type="flex">
         <el-col :span="5"></el-col>
         <el-col :span="20">
@@ -10,7 +10,7 @@
             <!--<font class="p-title"></font>-->
             <div class="mask"></div>
           </div>
-          <div>
+          <div class="home-div">
             <el-table
               :data="tableData"
               :header-cell-style="getHeaderRowClass"
@@ -75,8 +75,8 @@
                 align="center"
                 width="220">
                 <template slot-scope="scope">
-                  <el-button plain @click="handleEdit(scope.$index, scope.row,1)">交易</el-button>
-                  <el-button plain @click="handleEdit(scope.$index, scope.row,2)">详情</el-button>
+                  <el-button type="black" @click="handleEdit(scope.$index, scope.row,1)">交易</el-button>
+                  <el-button type="black" @click="handleEdit(scope.$index, scope.row,2)">详情</el-button>
                 </template>
               </el-table-column>
             </el-table>
@@ -105,7 +105,7 @@
       }
     },
     activated(){
-      this.$store.commit('HEADER_FONT_COLOR','#f8f8f8');
+      this.$store.dispatch('changeHeaderFontColor', '#f8f8f8');
     },
     mounted () {
       this.getCoinsInfo()
@@ -169,11 +169,14 @@
     width: 12px;
   }
 
-  .partner {
+  .home {
     background-color: #262a42;
-    min-height: 300px;
+    min-height: 356px;
     padding-bottom: 40px;
     color: #fff;
+  }
+  .home-div{
+
   }
 
 
@@ -194,6 +197,9 @@
     background-color: #4c83b9;
   }
 
+  .el-table{
+    background-color: inherit;
+  }
   .el-table td, .el-table th.is-leaf {
     border-bottom: 0px;
   }
@@ -201,20 +207,17 @@
   .el-table::before {
     z-index: inherit;
   }
-  .el-table__header-wrapper{
+  .el-table tr{
+    background-color: inherit;
+  }
+  .home >>> .el-table__header-wrapper{
     background: #262a42;
   }
-  .el-table__body-wrapper{
+  .home >>> .el-table__body-wrapper{
     background: #262a42;
   }
   .el-table--enable-row-hover .el-table__body tr:hover>td {
-       background-color: #1f2235;
-     }
-
-  .el-button {
-    background-color: #262b41;
-    color: #7588c2;
-    border: 1px #7588c2 solid;
+    background-color: #1f2235 !important;
   }
 
   .mask {
