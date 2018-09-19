@@ -7,8 +7,17 @@ import stores from './store'
 import axios from 'axios'
 import ElementUI from 'element-ui'
 
+
 import './assets/css/element-variables.scss'
 import 'element-ui/lib/theme-chalk/index.css'
+
+// 引入vue-video-player
+// import VueVideoPlayer from 'vue-video-player'
+// import 'video.js/dist/video-js.css'
+// Vue.use(VueVideoPlayer, /* {
+//   options: global default options,
+//   events: global videojs events
+// } */)
 
 Vue.config.productionTip = false
 

@@ -2,8 +2,7 @@
   <div class="footer" :style="{ 'background-color': '#181b2a' }">
     <div class="footer-container" >
       <el-row type="flex">
-        <el-col :span="5"><div class="grid-content bg-purple"></div></el-col>
-        <el-col :span="7" >
+        <el-col :span="5" :offset="2" >
           <div>
             <el-row type="flex" justify="start" class="footer-left">
               <el-col  >
@@ -32,27 +31,51 @@
             </el-row>
           </div>
         </el-col>
-        <el-col :span="7">
+        <el-col :span="7"  >
           <div>
             <el-row type="flex" justify="space-between">
-              <el-col  :span="12" :offset="12" style="width: 60%">
-                <div style="background-color: #6a7296;width:150px;height:20px;margin:auto;"></div>
-                <font class="footer-font">全球领先的数字资产交易平台</font>
-                <div style="width:160px;height:20px;margin:auto;">
-                  <img src="../../assets/img/facebook.png" class="banner_icons_image"/>
-                  <img src="../../assets/img/wechat.png" class="banner_icons_image" />
-                  <img src="../../assets/img/qq.png"  class="banner_icons_image"/>
-                  <img src="../../assets/img/twitter.png"  class="banner_icons_image"/>
-                  <img src="../../assets/img/weibo.png"  class="banner_icons_image"/>
-                  <img src="../../assets/img/facebook.png" class="banner_icons_image"/>
-                  <img src="../../assets/img/wechat.png" class="banner_icons_image" />
-                  <img src="../../assets/img/qq.png"  class="banner_icons_image"/>
+              <el-col style="padding: 5px;">
+                <img src="../../assets/img/banner_03.png" style="width: 60px;height: 60px;"/>
+                <p style="line-height: 30px;">技术</p>
+              </el-col>
+              <el-col style="padding: 5px;">
+                <img src="../../assets/img/banner_05.png" style="width: 60px;height: 60px;"/>
+                <p style="line-height: 30px;">商业</p>
+              </el-col>
+              <el-col style="padding: 5px;">
+                <img src="../../assets/img/banner_07.png" style="width: 60px;height: 60px;"/>
+                <p style="line-height: 30px;">投资</p>
+              </el-col>
+              <el-col style="padding: 5px;">
+                <img src="../../assets/img/banner_09.png" style="width: 60px;height: 60px;"/>
+                <p style="line-height: 30px;">可靠</p>
+              </el-col>
+            </el-row>
+          </div>
+        </el-col>
+        <el-col :span="4" >
+          <div >
+            <el-row type="flex" justify="space-between">
+              <el-col>
+                <div v-for="(item,index) in banners" class="social-div" >
+                  <el-tooltip placement="top" effect="light" :open-delay="1" :disabled="item.slot==null">
+                    <div slot="content">
+                      <img :src="item.slot" style="width: 90px;height: 90px;"/>
+                    </div>
+                    <img :src="item.url" :key="item.index" class="social-img" />
+                  </el-tooltip>
                 </div>
               </el-col>
             </el-row>
           </div>
         </el-col>
-        <el-col :span="5"><div class="grid-content bg-purple"></div></el-col>
+        <el-col :span="4">
+          <div>
+            <img src="../../assets/img/FILMCHAIN.png"/>
+            <p style="line-height: 30px;color:#747895;">全球领先得泛娱乐产业平台</p>
+            <p style="line-height: 30px;color:#747895;">商务合作邮箱: KUANGWP@126.com</p>
+          </div>
+        </el-col>
       </el-row>
     </div>
   </div>
@@ -66,6 +89,16 @@ export default {
   name: 'Footer',
   data () {
     return {
+      banners:[
+        {url:require('../../assets/img/facebook_2.png')},
+        {url:require('../../assets/img/twitter_2.gif')},
+        {url:require('../../assets/img/navigate_2.png')},
+        {url:require('../../assets/img/wechat_2.png'),slot:require('../../assets/img/qrcode.png')},
+        {url:require('../../assets/img/weibo_2.png')},
+        {url:require('../../assets/img/wechat_2.png'),slot:require('../../assets/img/qrcode.png')},
+        {url:require('../../assets/img/b_3.gif')},
+        {url:require('../../assets/img/qq_3.png')},
+      ]
     }
   },
   computed: mapGetters([
@@ -75,6 +108,16 @@ export default {
 
   },
   methods: {
+    overShow(idx){
+      if(idx == 3 || idx == 5){
+        console.log('show->'+idx);
+      }
+    },
+    outHide(idx){
+      if(idx == 3 || idx == 5){
+        console.log('hide->'+idx);
+      }
+    },
   }
 }
 </script>
@@ -127,7 +170,9 @@ export default {
 
   .list-unstyled{
     padding-left: 0;
+    padding-top: 10px;
     list-style: none;
+    line-height: 30px;
   }
 
   .el-row {
@@ -156,4 +201,14 @@ export default {
     width: 100%;
   }
 
+  .social-div{
+    width: 25%;
+    float: left;
+    padding-bottom: 20px;
+  }
+
+  .social-img{
+    border-radius: 50%;
+    background-color: #6a7394;
+  }
 </style>

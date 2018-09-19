@@ -68,6 +68,16 @@ export default new Router({
       component: resolve => require(['@/components/page/Home'], resolve)
     },
     {
+      path: '/swiper',
+      name: 'Swiper',
+      component: resolve => require(['@/components/page/Swiper'], resolve)
+    },
+    {
+      path: '/music',
+      name: 'Music',
+      component: resolve => require(['@/components/page/Music'], resolve)
+    },
+    {
       path: '*',
       redirect: '/index',
       hidden: true

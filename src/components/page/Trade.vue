@@ -20,22 +20,41 @@
           <el-col :span="16">
             <el-tabs type="border-card" style="height: 320px;">
               <el-tab-pane label="   限款委托    ">
-                <div class="line">可用：0.0000 USDE</div>
+                <el-row type="flex" >
+                  <el-col :span="10" style="clear: both;">
+                    <p style="float: left;">可用:</p>
+                    <p style="float: right;">USDE</p>
+                    <p style="float: right;color:#85ce61;">0.0000</p>
+                  </el-col>
+                  <el-col :span="10" :offset="2" style="clear: both;">
+                    <p style="float: left">可用:</p>
+                    <p style="float: right;">BTC</p>
+                    <p style="float: right;color: #f56c6c;">0.0000</p>
+                  </el-col>
+                </el-row>
+                <div class="line"></div>
                 <div style="margin-top: 20px;" >
-                  <el-row>
-                    <el-col :span="10" >
-                      <el-form :label-position="labelPosition" label-width="80px" :model="formLabelAlign" >
-                          <el-input style="float: left;width: 320px;"  v-model="formLabelAlign.name" placeholder="USDE"></el-input>
-                          <el-input style="float: left;width: 320px;"  v-model="formLabelAlign.amount" placeholder="买入量BTC"></el-input>
-                        <el-input style="float: left;width: 320px;"  v-model="formLabelAlign.amount" placeholder="交易额USDE"></el-input>
-                        <el-button type="success" style="width:320px;border-radius:0px; margin-right: 100px">买入BTC</el-button>
+                  <el-row type="flex">
+                    <el-col :span="10">
+                      <el-form :label-position="labelPosition" label-width="80px"  :model="formLabelAlign" >
+                        <el-input style="float: left;"  v-model="formLabelAlign.name" placeholder="USDE"></el-input>
+                        <el-input style="float: left;"  v-model="formLabelAlign.amount" placeholder="买入量BTC"></el-input>
+                        <el-input style="float: left;"  v-model="formLabelAlign.amount" placeholder="交易额USDE"></el-input>
+                        <el-button type="success" style="width:100%;border-radius:0px; ">买入BTC</el-button>
+                        <el-button type="text" style="float: left;margin-left: 0rem;color:#67c23a;">充值</el-button>
                       </el-form>
                     </el-col>
                     <el-col :span="2">
-                      <div style="float:left;width: 1px;height: 25px; background: #ffffff;"></div>
+                      <div class="split-div"></div>
                     </el-col>
-                    <el-col :spn="10">
-
+                    <el-col :span="10">
+                      <el-form :label-position="labelPosition" label-width="80px" :model="formLabelAlign" >
+                        <el-input style="float: left;"  v-model="formLabelAlign.name" placeholder="USDE"></el-input>
+                        <el-input style="float: left;"  v-model="formLabelAlign.amount" placeholder="买入量BTC"></el-input>
+                        <el-input style="float: left;"  v-model="formLabelAlign.amount" placeholder="交易额USDE"></el-input>
+                        <el-button type="danger" style="width:100%;border-radius:0px;">卖出BTC</el-button>
+                        <el-button type="text" style="float: left;margin-left: 0rem;color:#f56c6c;">充币</el-button>
+                      </el-form>
                     </el-col>
                   </el-row>
                 </div>
@@ -363,6 +382,14 @@
 
   .el-table td, .el-table th.is-leaf {
     border-bottom: 0px;
+  }
+
+  .split-div{
+    margin-left: auto;
+    margin-right: auto;
+    width: 1px;
+    height: 100%;
+    background-color: #dcdfe6;
   }
 </style>
 
