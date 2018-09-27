@@ -102,30 +102,62 @@
           {id: 6},
         ],
         tableData: [],
+        testData: [
+          {
+            'type': 'FIC',
+            'newTotal': '3920.0000',
+            'highestAmount': '6920.0000',
+            'lowestAmount': '6414.3300',
+            'dealAmount': '6414.3300',
+            'deal': '11.2657',
+            'upDown': 3.9,
+            'money': '11.2657'
+          },
+          {
+            'type': 'ETH',
+            'newTotal': '320.000',
+            'highestAmount': '291.4300',
+            'lowestAmount': '271.4300',
+            'dealAmount': '271.4300',
+            'deal': '22.00883',
+            'upDown': -1.9,
+            'money': '22.0883'
+          },
+          {
+            'type': 'FIC',
+            'newTotal': '320.0000',
+            'highestAmount': '291.4300',
+            'lowestAmount': '271.4300',
+            'dealAmount': '271.4300',
+            'deal': '22.00883',
+            'upDown': -1.9,
+            'money': '22.0883'
+          }
+        ]
       }
     },
-    activated(){
-      this.$store.dispatch('changeHeaderFontColor', '#f8f8f8');
+    activated () {
+      this.$store.dispatch('changeHeaderFontColor', '#f8f8f8')
     },
     mounted () {
       this.getCoinsInfo()
     },
     methods: {
-      getCoinsInfo(){
-        this.$axios.get(`/api/coinList`,{}).then((res) => {
-          if(res.status == 200){
-            this.tableData = res.data;
+      getCoinsInfo () {
+        this.$axios.get(`/api/coinList`, {}).then((res) => {
+          if (res.status == 200) {
+            this.tableData = this.testData;
           }
-        }).catch((res)=>{
-          this.$message.error(res);
+        }).catch((res) => {
+          this.$message.error(res)
         })
       },
-      handleEdit (index, row,flag) {
-          if(flag ==1){
-            this.$router.push('/trade');
-          }else {
-            this.$router.push('/recharge');
-          }
+      handleEdit (index, row, flag) {
+        if (flag == 1) {
+          this.$router.push('/trade')
+        } else {
+          this.$router.push('/recharge')
+        }
       },
       getHeaderRowClass ({row, column, rowIndex, columnIndex}) {
         return {background: '#262a42', color: '#f8f8f8'}
@@ -140,12 +172,12 @@
 
 <style>
   .bg {
-    background-image: url('../../assets/img/home_bg.png');
+    background-image: url('../../assets/img/earth.gif');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     -moz-background-size: 100% 100%;
     -webkit-background-size: 100% 100%;
-    min-height: 1000px;
+    height: 1000px;
     margin-top: -60px;
   }
 
@@ -175,10 +207,10 @@
     padding-bottom: 40px;
     color: #fff;
   }
-  .home-div{
+
+  .home-div {
 
   }
-
 
   .line-horizontal li {
     float: left;
@@ -197,9 +229,10 @@
     background-color: #4c83b9;
   }
 
-  .el-table{
+  .el-table {
     background-color: inherit;
   }
+
   .el-table td, .el-table th.is-leaf {
     border-bottom: 0px;
   }
@@ -207,16 +240,20 @@
   .el-table::before {
     z-index: inherit;
   }
-  .el-table tr{
+
+  .el-table tr {
     background-color: inherit;
   }
-  .home >>> .el-table__header-wrapper{
+
+  .home > > > .el-table__header-wrapper {
     background: #262a42;
   }
-  .home >>> .el-table__body-wrapper{
+
+  .home > > > .el-table__body-wrapper {
     background: #262a42;
   }
-  .el-table--enable-row-hover .el-table__body tr:hover>td {
+
+  .el-table--enable-row-hover .el-table__body tr:hover > td {
     background-color: #1f2235 !important;
   }
 

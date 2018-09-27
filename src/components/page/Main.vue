@@ -1,18 +1,28 @@
 <template>
   <div class="main-container">
-    <div class="bg" :style="{'height':pmHeight}">
-    </div>
+    <swiper :options="swiperOption" ref="mySwiper" class="indexBg">
+      <swiper-slide v-for="(item,index) in bannerImgs" :key="index">
+        <img :src="item.url" class="banner_img"/>
+      </swiper-slide>
+      <div class="swiper-pagination"  slot="pagination"></div>
+      <div class="swiper-button-prev" slot="button-prev"></div>
+      <div class="swiper-button-next" slot="button-next"></div>
+      <div class="swiper-scrollbar"   slot="scrollbar"></div>
+    </swiper>
+<!--
+    <aplayer autoplay  :music="music"/>
+-->
     <div class="fc">
       <el-row type="flex">
-        <el-col :span="5"></el-col>
-        <el-col :span="14">
+        <el-col :span="4"></el-col>
+        <el-col :span="16">
           <div class="text-center p-title-div">
             <font class="p-title">影视链</font>
           </div>
           <div>
             <el-row type="flex" style="min-height: 280px;">
               <el-col :span="10" :offset="1">
-                <div>
+                <div class="video-player-box">
                   <!--class="video-player-box"-->
                   <video-player  class="video-player vjs-custom-skin"
                                  ref="videoPlayer"
@@ -71,11 +81,11 @@
       </div>
     </div>
 
-    <div style="background-color: #262a42;padding: 20px;">
+    <div style="background-color: #262a42;padding: 40px;">
       <el-row type="flex">
-        <el-col :span="6" :offset="5">
+        <el-col :span="7" :offset="4">
           <p style="text-align: left;color:#849bf2;font-size: 18px;line-height: 40px;">Application model of film and television chain</p>
-          <p style="text-align: left;color:#8a8fae;font-size: 16px;line-height: 30px;">
+          <p style="text-align: left;color:#8a8fae;font-size: 16px;line-height: 32px;">
             Depending on the chain by building based on the technique of block chain ticket management, rights management, film and television, digital asset management, investment, entertainment consumption such as ecology, as well as games, social networking, shopping platform, studios, news BBS and promote mining, etc., of realizing matching chain, film and television and film and television industry organizations, directors, producers, actors, fans and consumers, and to solve ecological defects, film and television industry
           </p>
         </el-col>
@@ -84,16 +94,16 @@
         </el-col>
       </el-row>
     </div>
-    <div style="background-color: #262a42;padding: 20px;">
+    <div style="background-color: #262a42;padding: 40px;">
       <el-row type="flex">
-        <el-col :span="7" :offset="5">
+        <el-col :span="7" :offset="4">
           <img src="../../assets/img/band.png" style="width: 100%;"/>
         </el-col>
-        <el-col :span="6" :offset="1">
+        <el-col :span="7" :offset="1">
           <p style="text-align: left;color:#849bf2;font-size: 18px;line-height: 40px;">
             Investment management system
           </p>
-          <p style="text-align: left;color:#8a8fae;font-size: 16px;line-height: 30px;">
+          <p style="text-align: left;color:#8a8fae;font-size: 16px;line-height: 28px;">
             The movie and television chain provides a complete set of video project display system, customer one-click release project, management of investment project progress, Register is when the customer Register, must provide complete and real identity information, the customer needs to provide the project picture and text introduction and video introduction before releasing the project. Account management provides a set of secure FilmP wallets.
           </p>
         </el-col>
@@ -102,9 +112,10 @@
 
     <div class="team">
       <el-row type="flex" style="width: 100%;">
-        <el-col :span="14" :offset="5">
+        <el-col :span="16" :offset="4">
           <div class="text-center p-title-div" >
-            <font class="p-title">优秀团队</font>
+            <div class="p-title">优秀团队</div>
+            <p class="team-title">影视链项目背后的团队是一个有经验的管理者、组织者、开发者和数字资产专家所组成。</p>
           </div>
           <div>
             <el-row type="flex" justify="start" style="flex-direction: row;flex-wrap: wrap!important;">
@@ -112,15 +123,15 @@
                 <div class="p-2 col-4 team-item" >
                   <div  :span="24" class="team-div">
                     <img :src="item.avatar"/>
-                    <p style="color:#93a2d1;font-size: 28px;padding-top:20px;padding-bottom: 20px;">Lewis Neri</p>
+                    <p style="color:#93a2d1;font-size: 24px;padding-top:10px;padding-bottom: 10px;">{{item.name}}</p>
                     <ul class="line-horizontal">
                       <li>
                         <b></b>
                       </li>
                     </ul>
                     <br />
-                    <p style="color:#93a2d1;text-align: center;padding-bottom: 20px;">CEO &amp; 发起人</p>
-                    <p class="team-desc">早期商业模型架构师，负责公司产品的方向制定。他有超过7年的电影行业经验，有12年多的行业经验。</p>
+                    <p style="color:#93a2d1;text-align: center;padding-bottom: 10px;">{{item.role}}</p>
+                    <p class="team-desc">{{item.content}}</p>
                   </div>
                 </div>
               </el-col>
@@ -132,18 +143,18 @@
 
     <div class="partner">
       <el-row type="flex">
-        <el-col :span="5"></el-col>
-        <el-col :span="14">
+        <el-col :span="4"></el-col>
+        <el-col :span="16">
           <div class="text-center p-title-div">
             <font class="p-title">战略合作机构</font>
           </div>
           <div>
-            <div v-for="item in images" style="float: left;width: 20%;margin-bottom: 20px;">
-              <img :src="item.url" :key="item.url" style="width: 85%;"/>
+            <div v-for="(item,index) in images" :key="index" style="float: left;width: 20%;margin-bottom: 20px;">
+              <img :src="item.url" style="width: 85%;"/>
             </div>
           </div>
         </el-col>
-        <el-col :span="5"></el-col>
+        <el-col :span="4"></el-col>
       </el-row>
     </div>
 
@@ -156,10 +167,20 @@
   import 'video.js/dist/video-js.css'
   import 'vue-video-player/src/custom-theme.css'
   import { videoPlayer } from 'vue-video-player'
+  import 'swiper/dist/css/swiper.css'
+  import { swiper, swiperSlide } from 'vue-awesome-swiper'
+  import Aplayer from 'vue-aplayer'
+  Aplayer.disableVersionBadge = true
   export default {
     name: 'HelloWorld',
     data () {
       return {
+        music:{
+          title: 'secret base~君がくれたもの~',
+          artist: 'Silent Siren',
+          src: 'https://moeplayer.b0.upaiyun.com/aplayer/secretbase.mp3',
+          pic: 'https://moeplayer.b0.upaiyun.com/aplayer/secretbase.jpg'
+        },
         playerOptions: {
           autoplay: false,
           muted: true,
@@ -169,7 +190,7 @@
           aspectRatio: '16:9',
           fluid: true,
           sources: [{
-            type: "video/mp4",
+            type: "video/webm",
             src: "https://cdn.theguardian.tv/webM/2015/07/20/150716YesMen_synd_768k_vp8.webm"
           }],
           notSupportedMessage: '此视频暂无法播放，请稍后再试',
@@ -177,12 +198,36 @@
         },
         pmHeight:document.documentElement.clientHeight+'px',
         teams:[
-          {id:1,avatar:require('../../assets/img/avatar_11.png')},
-          {id:2,avatar:require('../../assets/img/avatar_12.png')},
-          {id:3,avatar:require('../../assets/img/avatar_13.png')},
-          {id:4,avatar:require('../../assets/img/avatar_14.png')},
-          {id:5,avatar:require('../../assets/img/avatar_15.png')},
-          {id:6,avatar:require('../../assets/img/avatar_16.png')},
+          {id:1,
+            name:"Chris",
+            role:"co-sponsor",
+            content:"Chief strategy officer, master of quantum mechanics, New York university, music arts, early bitcoin investor, deputy secretary general of NYU alumni foundation Asia Pacific.",
+            avatar:require('../../assets/img/avatar_15.png')},
+          {id:2,
+            name:"Alice Cover",
+            role:"co-sponsor",
+            content:"Coo, university of Sydney, Australia, finance major, senior investment director of KEQE fund, an early participant in digital exchange.",
+            avatar:require('../../assets/img/avatar_14.png')},
+          {id:3,
+            name:"Lewis Neri",
+            role:"co-sponsor",
+            content:"The chief technology officer, an early business model architect, is responsible for the company's product direction. He has more than 17 years of silicon valley IT industry experience.",
+            avatar:require('../../assets/img/avatar_16.png')},
+          {id:4,
+            name:"Della Foster",
+            role:"co-sponsor",
+            content:"Director of the Hollywood film academy in China and representative of the Hollywood producer union in China.",
+            avatar:require('../../assets/img/avatar_11.png')},
+          {id:5,
+            name:"Fred Hopkins",
+            role:"Back-end engineer",
+            content:"Computer engineer with more than 15 years of information security-related experience and ISACA network security foundation certificate (CSX).",
+            avatar:require('../../assets/img/avatar_12.png')},
+          {id:6,
+            name:"Joshua Clapton",
+            role:"Font-end engineer",
+            content:"The front-end engineer is engaged in software development. Before he joined the film and television chain, he started his independent business as a freelance blockchain developer.",
+            avatar:require('../../assets/img/avatar_13.png')},
         ],
         images:[
           {url:require('../../assets/img/partner0.gif')},
@@ -195,41 +240,48 @@
           {url:require('../../assets/img/partner7.gif')},
           {url:require('../../assets/img/partner8.gif')},
           {url:require('../../assets/img/partner9.png')},
-        ]
+        ],
+        bannerImgs:[
+          {url:require('../../assets/img/earth.gif')},
+          {url:require('../../assets/img/bg.jpg')},
+          {url:require('../../assets/img/bg3.png')},
+        ],
+        swiperOption: {
+          loop:true,
+          autoplay : 1000,
+          speed:2000,
+          navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev'
+          }
+        }
       }
     },
     computed: {
       player() {
         return this.$refs.videoPlayer.player
+      },
+      swiper() {
+        return this.$refs.mySwiper.swiper
       }
     },
     mounted(){
-      console.log(this.pmHeight);
     },
     methods: {
-      // listen event
       onPlayerPlay(player) {
-        // console.log('player play!', player)
       },
       onPlayerPause(player) {
-        // console.log('player pause!', player)
       },
-      // ...player event
-
-      // or listen state event
       playerStateChanged(playerCurrentState) {
-        // console.log('player current update state', playerCurrentState)
       },
-
-      // player is ready
       playerReadied(player) {
-//        console.log('the player is readied', player)
-        // you can use it to do something...
-        // player.[methods]
       }
     },
     components: {
-      videoPlayer
+      videoPlayer,
+      swiper,
+      swiperSlide,
+      Aplayer
     }
   }
 </script>
@@ -237,22 +289,26 @@
 <style scoped>
   .main-container{
   }
-  .bg{
-    background-image: url('../../assets/img/home_bg.png');
-    background-repeat:no-repeat;
-    background-size: 100% 100%;
+  .indexBg{
+    height: 800px;
+    margin-top: -60px;
+  }
+  .banner_img{
+    width: inherit;
+    height: inherit;
+    background:no-repeat 50% 50%;
+    background-size: cover;
     -moz-background-size: 100% 100%;
     -webkit-background-size: 100% 100%;
-    /*min-height: 1000px;*/
-    margin-top: -60px;
   }
   .p-title-div{
     padding-top: 40px;
-    padding-bottom: 20px;
+    padding-bottom: 25px;
   }
   .p-title{
     font-size: 28px;
     color:#7594f5;
+    padding-bottom: 15px;
   }
   .fc{
     background-image: url('../../assets/img/ysl.png');
@@ -328,7 +384,7 @@
     margin:0px 10px 10px 0px;
     color:#F8F8F8;
     font-size: 14px;
-    opacity: 0.8;
+    opacity: 0.9;
   }
   .desc_hide_div{
     height: 96px;
@@ -338,50 +394,9 @@
     text-align: justify;
     font-size: 14px;
   }
-  .box_white{
-    position:absolute;
-    background-color: white;
-    top:1.25rem;
-    /*left: 70px;*/
-    left:4.375rem;
-    /*width: 150px;*/
-    width: 8rem;
-    height: 7.5rem;
-  }
-  .box_white1{
-    position:absolute;
-    background-color: white;
-    top:1.25rem;
-    /*left: 220px;*/
-    left:12.375rem;
-    /*width: 80px;*/
-    width: 5rem;
-    height: 1.25rem;
-  }
-  .box_transparent{
-    position:absolute;
-    background-color: rgba(0, 0, 0, 0.3);
-    /*width: 80px;*/
-    width: 5rem;
-    /*height: 100px;*/
-    height: 6.25rem;
-    top:2.5rem;
-    left:12.375rem;
-    /*left: 220px;*/
-  }
-  .box_black{
-    position:absolute;
-    background-color: black;
-    /*width: 200px;*/
-    width: 7.5rem;
-    height: 7.5rem;
-    top:3.75rem;
-    left:12.375rem;
-    /*left: 220px;*/
-  }
   .partner{
     background-color: #262a42;
-    min-height: 440px;
+    min-height: 340px;
     padding-bottom: 40px;
     color: #fff;
   }
@@ -407,17 +422,34 @@
     text-align: center;
     min-height: 410px;
   }
-  .team-div{
+  .team-div {
     text-align: center;
     align-items: center;
     vertical-align: middle;
     line-height: 30px;
-    min-height: 320px;
+    min-height: 415px;
+    max-height: 415px;
+    overflow: hidden;
     border-radius: 15px;
-    border:3px solid rgba(117, 148, 245, 0.8);
+    border: 3px solid rgba(117, 148, 245, 0.8);
     padding: 20px;
-    margin: 20px 20px 20px 20px;
+    margin: 20px;
     box-shadow: 0 0 15px rgba(117, 148, 245, 0.8);
+  }
+  @media screen and (max-width: 640px){
+    .team-div {
+      text-align: center;
+      align-items: center;
+      vertical-align: middle;
+      line-height: 30px;
+      min-height: 400px;
+      max-height: 400px;
+      border-radius: 15px;
+      border: 3px solid rgba(117, 148, 245, 0.8);
+      padding: 20px;
+      margin: 20px 20px 20px 20px;
+      box-shadow: 0 0 15px rgba(117, 148, 245, 0.8);
+    }
   }
   .team-image{
     width: 106px;
@@ -425,7 +457,12 @@
     border-radius: 50%;
   }
   .team-desc{
-    text-align: justify;
+    text-align: left;
+    line-height:18px;
+    font-size: 12px;
+    color:#93a2d1;
+  }
+  .team-title{
     line-height:18px;
     font-size: 12px;
     color:#93a2d1;

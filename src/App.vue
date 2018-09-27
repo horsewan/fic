@@ -54,7 +54,11 @@
 
   html, body, #app, .wrap {
     height: 100%;
-    -webkit-user-select: text
+    -webkit-user-select: text;
+    /*min-width:100%;*/
+    min-width: 1024px;
+    width: 100%;
+    max-width:100%;
   }
   * {
     margin: 0;

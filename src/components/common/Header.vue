@@ -5,12 +5,11 @@
       </el-col>
       <el-col :span="16" >
         <el-row type="flex" style="z-index:999;">
-          <el-col :span="16" >
-            <div  v-show="!isLogin" style="text-align: left;">
-              <a class="py-2 d-none d-md-inline-block" href="javascript:;">
-                <div style="background-color: #3a4268;width:100px;min-height:30px;vertical-align: middle;display: inline-block;">
-                </div>
-              </a>
+          <el-col :span="17" >
+            <div v-show="!isLogin" style="text-align: left;">
+              <div style="width:100px;min-height:30px;display: inline-block;text-align:center;padding-top:10px;line-height:40px;">
+                <img style="max-width: 60px; max-height: 40px;line-height: 40px;vertical-align: middle;" src="../../assets/img/FILMCHAIN.png"/>
+              </div>
               <router-link to="/index" tag='span'>
                 <a class="py-2 d-none d-md-inline-block" href="javascript:;" :style="{ 'margin-left': '30px','text-decoration' : 'none','color': headerFontColor}">首页</a>
               </router-link>
@@ -28,10 +27,9 @@
               </router-link>
             </div>
             <div  v-show="isLogin" style="text-align: left;">
-              <a class="py-2 d-none d-md-inline-block" href="javascript:;">
-                <div style="background-color: #3a4268;width:100px;min-height:30px;vertical-align: middle;display: inline-block;">
-                </div>
-              </a>
+              <div style="width:100px;min-height:30px;display: inline-block;text-align:center;padding-top:10px;line-height:40px;">
+                <img style="max-width: 60px; max-height: 40px;line-height: 40px;vertical-align: middle;" src="../../assets/img/FILMCHAIN.png"/>
+              </div>
               <router-link to="/home" tag='span'>
                 <a class="py-2 d-none d-md-inline-block" href="javascript:;" :style="{ 'margin-left': '30px','text-decoration' : 'none','color': headerFontColor}">首页</a>
               </router-link>
@@ -46,7 +44,7 @@
               </router-link>
             </div>
           </el-col>
-          <el-col :span="8" >
+          <el-col :span="7" >
             <div style="text-align: right;" >
               <a class="py-2 d-none d-md-inline-block" href="javascript:;" :style="{ 'float':'right','margin-left': '30px','text-decoration' : 'none','color': headerFontColor}">
                 <i class="el-icon-setting"></i>
